@@ -4,7 +4,9 @@ from levelXP import ReputationSystem
 from news import FetchNews
 from todo import TodoAPI
 from runner import ScriptRunner
+from ocr import TextractAPI
 from utils import *
+import base64
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -16,6 +18,7 @@ crud = ReputationSystem(bot)
 fetch_news = FetchNews()
 todo = TodoAPI()
 runner = ScriptRunner()
+ocr = TextractAPI()
 
 
 # extra util
@@ -24,6 +27,24 @@ def delete_command(chat_id, message_id):
         bot.delete_message(chat_id, message_id)
     except:
         pass
+
+
+''' OCR Microservice '''
+
+
+@bot.message_handler(content_types=['photo'])
+def photo(message):
+
+    if not message.caption == "/ocr":
+        return
+    
+    fileID = message.photo[-1].file_id
+    file_info = bot.get_file(fileID)
+    downloaded_file = bot.download_file(file_info.file_path)
+
+    image = str(base64.encodebytes(downloaded_file))
+    ocr.textrack(message.from_user.id, image)
+
 
 
 ''' Scripts Runner '''
