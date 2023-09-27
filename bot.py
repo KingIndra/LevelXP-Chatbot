@@ -26,6 +26,17 @@ def delete_command(chat_id, message_id):
         pass
 
 
+''' Scripts Runner '''
+
+
+@bot.message_handler(commands=['py', 'js'])
+def run(msg):
+    uid = msg.from_user.id
+    exe, code = msg.text[1:3], msg.text[4:]
+    response = runner.execute(uid, code, exe)
+    bot.reply_to(msg, response)
+
+
 ''' MONGO DB TEST COMMANDS '''
 
 
