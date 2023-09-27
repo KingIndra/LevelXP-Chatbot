@@ -1,6 +1,12 @@
-## Chat ( Level / XP ) Bot For Telegram Groups Built using Python 
+## Chat XP Bot For Telegram Groups
 
-Telegram Username ->  [@Chat_Level_Bot]()  |  Scroll Down for Images
+Telegram Username ->  [@Chat_Level_Bot]()
+
+```
+Teck Stack: PyTelegramBotAPI, FastAPI, Express.js, MongoDB, AWS Lambda, DynamoDB, Docker, RabbitMQ 
+
+Flexible chat-xp bot for telegram groups with inbuilt todo application, (py and js) scripts runners and OCR as a microservice.
+```
 
 ```
 setting up:
@@ -33,7 +39,6 @@ l or L or 💀 : to decrease rep.
 /startbot to start bot in your group after adding it
 Talk with GPT AI byt replying to bot
 /news for fetching news
-contact developer @KingIndra for any help.
 ```
 
 <hr>
