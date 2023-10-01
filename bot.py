@@ -43,7 +43,9 @@ def photo(message):
     downloaded_file = bot.download_file(file_info.file_path)
 
     image = str(base64.encodebytes(downloaded_file))
-    ocr.textrack(message.from_user.id, image)
+    response = ocr.textrack(message.from_user.id, image)
+
+    bot.reply_to(message, response)
 
 
 
